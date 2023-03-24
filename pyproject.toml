@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "plannification-automatique"
+version = "0.1.0"
+description = ""
+authors = ["Flavien Deseure--Charron <flavien.deseure@gmail.com>"]
+readme = "README.md"
+packages = [{include = "plannification_automatique"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pddl = "^0.2.0"
+
+[tool.poetry.group.dev.dependencies]
+pddl = "^0.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
