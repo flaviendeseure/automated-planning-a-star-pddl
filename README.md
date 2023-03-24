@@ -1,1 +1,1 @@
-# plannification-automatique
+# planification-automatique

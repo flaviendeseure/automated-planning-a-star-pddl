@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "plannification-automatique"
+name = "planification-automatique"
 version = "0.1.0"
 description = ""
 authors = ["Flavien Deseure--Charron <flavien.deseure@gmail.com>"]
 readme = "README.md"
-packages = [{include = "plannification_automatique"}]
+packages = [{include = "planification_automatique"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -16,3 +16,7 @@ pddl = "^0.2.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+convert = "planification_automatique.convert_problem_pddl:main"
+main = "planification_automatique.main:main"
