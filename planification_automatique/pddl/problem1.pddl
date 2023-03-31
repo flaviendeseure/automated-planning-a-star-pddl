@@ -12,7 +12,6 @@
     (face7 g o y)
     (face8 g r y)
   )
-  (:metric minimize (cost))
   (:goal (and
     (face1 o g w)
     (face2 o b w)

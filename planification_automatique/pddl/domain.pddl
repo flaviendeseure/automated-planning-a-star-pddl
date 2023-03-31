@@ -1,9 +1,8 @@
 (define (domain rubik)
-    (:requirements :strips :typing :equality)
+    (:requirements :strips :typing)
 
 
     (:types color)
-    (:functions (cost) - number)
 
     (:predicates
         (face1 ?f ?l ?d - color)
@@ -42,7 +41,6 @@
                     (face4 ?u8 ?r8 ?b8)
                 ))
             )
-            (increase (cost) 1)
         )
     )
 
@@ -72,7 +70,6 @@
                     (face6 ?u8 ?r8 ?b8)
                 ))
             )
-            (increase (cost) 1)
         )
     )
 
@@ -102,7 +99,6 @@
                     (face6 ?r8 ?b8 ?u8)
                 ))
             )
-            (increase (cost) 1)
         )
     )
 
@@ -132,7 +128,6 @@
                     (face7 ?r8 ?b8 ?u8)
                 ))
             )
-            (increase (cost) 1)
         )
     )
 
@@ -162,7 +157,6 @@
                     (face2 ?f6 ?u6 ?r6)
                 ))
             )
-            (increase (cost) 1)
         )
     )
 
@@ -192,7 +186,6 @@
                     (face5 ?f6 ?u6 ?r6)
                 ))
             )
-            (increase (cost) 1)
         )
     )
 

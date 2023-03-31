@@ -1,0 +1,8 @@
+# IDE Files
+.idea/
+
+# OS Files
+.DS_Store
+
+# Cache files
+*.pyc
