@@ -1,9 +1,6 @@
 (define (domain rubik)
     (:requirements :strips :typing)
-
-
     (:types color)
-
     (:predicates
         (face1 ?f ?l ?d - color)
         (face2 ?f ?r ?d - color)
@@ -16,6 +13,8 @@
     )
 
     (:action R
+        :parameters ()
+        :precondition ()
         :effect (and
             (forall (?f2 ?r2 ?d2 - color) (when (face2 ?f2 ?r2 ?d2)
                 (and
@@ -45,6 +44,8 @@
     )
 
     (:action R_p
+        :parameters ()
+        :precondition ()
         :effect (and
             (forall (?f2 ?r2 ?d2 - color) (when (face2 ?f2 ?r2 ?d2)
                 (and
@@ -74,6 +75,8 @@
     )
 
     (:action U
+        :parameters ()
+        :precondition ()
         :effect (and
             (forall (?f5 ?l5 ?u5 - color) (when (face5 ?f5 ?l5 ?u5)
                 (and
@@ -103,6 +106,8 @@
     )
 
     (:action U_p
+        :parameters ()
+        :precondition ()
         :effect (and
             (forall (?f5 ?l5 ?u5 - color) (when (face5 ?f5 ?l5 ?u5)
                 (and
@@ -132,6 +137,8 @@
     )
 
     (:action F
+        :parameters ()
+        :precondition ()
         :effect (and
             (forall (?f1 ?l1 ?d1 - color) (when (face1 ?f1 ?l1 ?d1)
                 (and
@@ -161,6 +168,8 @@
     )
 
     (:action F_p
+        :parameters ()
+        :precondition ()
         :effect (and
             (forall (?f1 ?l1 ?d1 - color) (when (face1 ?f1 ?l1 ?d1)
                 (and

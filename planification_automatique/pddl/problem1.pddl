@@ -2,7 +2,6 @@
   (:domain rubik)
   (:objects r w b g o y - color)
   (:init
-    (= (cost) 0)
     (face1 o g w)
     (face2 o b w)
     (face3 r g w)
