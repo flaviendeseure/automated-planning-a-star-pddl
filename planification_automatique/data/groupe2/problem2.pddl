@@ -285,11 +285,7 @@
         
     )
 
-    (:goal (and
-            (at pos11)
-            (at pos12)
-            (at pos13)
-            (at pos14)
-        )
+    (:goal
+        (at pos11)
     )
 )
