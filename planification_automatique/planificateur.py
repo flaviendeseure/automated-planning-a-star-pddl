@@ -10,10 +10,10 @@ class PDDLProblem:
         self.problem = parse_problem(problem_file)
 
     def initial_state(self):
-        return self.problem['init']
+        return self.problem.init
 
     def is_goal(self, state):
-        return state.contains(self.problem['goal'])
+        return state.contains(self.problem.goal)
 
     def heuristic(self, state):
         # Implémentez votre heuristique ici, si nécessaire.

@@ -285,8 +285,7 @@
         
     )
 
-    (:goal
-        (or
+    (:goal (and
             (at pos11)
             (at pos12)
             (at pos13)
