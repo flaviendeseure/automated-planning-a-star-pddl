@@ -1,4 +1,5 @@
 import heapq
+import pddl
 from pddl import parse_domain, parse_problem
 
 
@@ -21,12 +22,44 @@ class PDDLProblem:
         return 0
 
     def actions(self, state):
-        # Implémentez une méthode pour renvoyer les actions applicables étant donné un état
-        pass
+        applicable_actions = []
+
+        for action in self.domain.actions:
+            # Vérifiez si toutes les préconditions de l'action sont satisfaites
+            preconditions_satisfied = True
+            for precondition in action.precondition.parts:
+                if isinstance(precondition, pddl.Atom):
+                    predicate = precondition.predicate
+                    if predicate not in state:
+                        preconditions_satisfied = False
+                        break
+
+            # Si toutes les préconditions sont satisfaites, ajoutez l'action aux actions applicables
+            if preconditions_satisfied:
+                applicable_actions.append(action)
+
+        return applicable_actions
+
 
     def result(self, state, action):
-        # Implémentez une méthode pour renvoyer l'état résultant après l'application d'une action
-        pass
+        # Créez une copie de l'état actuel pour éviter de modifier l'état d'origine
+        new_state = state.copy()
+
+        # Appliquez les effets négatifs de l'action à l'état
+        for negative_effect in action.effects[0].parts:
+            if isinstance(negative_effect, pddl.NegatedAtom):
+                predicate = negative_effect.predicate
+                if predicate in new_state:
+                    new_state.remove(predicate)
+
+        # Appliquez les effets positifs de l'action à l'état
+        for positive_effect in action.effects[0].parts:
+            if isinstance(positive_effect, pddl.Atom):
+                predicate = positive_effect.predicate
+                if predicate not in new_state:
+                    new_state.add(predicate)
+
+        return new_state
 
 
 
