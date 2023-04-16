@@ -19,7 +19,7 @@ def construct_predicate(predicate: Predicate, action: dict) -> Predicate:
     return Predicate(predicate.name, *variables)
 
 
-def is_applicable(action: dict, state: frozenset) -> bool:
+def is_applicable(action: dict, state: AbstractSet[logic.Formula]) -> bool:
     preconditions = action["precondition"]
     if isinstance(preconditions, logic.TrueFormula):
         return True
