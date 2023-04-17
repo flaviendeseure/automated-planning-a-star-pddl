@@ -6,7 +6,45 @@ from typing import AbstractSet
 import pddl.core
 import pddl.logic.base as logic
 from pddl import parse_domain, parse_problem
+from pddl.logic.effects import AndEffect, Forall, When
 from pddl.logic.predicates import Predicate
+
+
+def change_state(state: AbstractSet[logic.Formula], action: dict) -> set[logic.Formula]:
+    new_state = set(state)
+    effect: AndEffect = action["effect"]
+    for operand in effect.operands:
+        if isinstance(operand, logic.Not):
+            if isinstance(operand.argument, Predicate):
+                predicate: Predicate = construct_predicate(operand.argument, action)
+                if predicate in new_state:
+                    new_state.remove(predicate)
+            else:
+                raise NotImplementedError
+
+        elif isinstance(operand, Predicate):
+            predicate: Predicate = construct_predicate(operand, action)
+            new_state.add(predicate)
+
+        elif isinstance(operand, Forall):
+            when: When = operand.effect
+            for when_effect in when.effect.operands:
+                if isinstance(when_effect, Predicate):
+                    s = [s for s in state if s.name == when_effect.name]
+                    predicate = Predicate(when_effect.name, *s[0].terms)
+                    new_state.add(predicate)
+
+                elif isinstance(when_effect, logic.Not):
+                    s = [s for s in state if s.name == when_effect.argument.name]
+                    predicate = Predicate(when_effect.argument.name, *s[0].terms)
+                    new_state.remove(predicate)
+
+                else:
+                    raise NotImplementedError
+
+        else:
+            raise NotImplementedError
+    return new_state
 
 
 def construct_predicate(predicate: Predicate, action: dict) -> Predicate:
@@ -53,8 +91,6 @@ def is_applicable(action: dict, state: AbstractSet[logic.Formula]) -> bool:
         return predicate in state
 
     else:
-        print(preconditions)
-        print(type(preconditions))
         raise NotImplementedError
 
 
@@ -118,6 +154,9 @@ def main():
         if is_applicable(action, problem.init)
     ]
     print(f"{len(possible_actions)} actions possible in initial state")
+    state = problem.init
+    for action in possible_actions:
+        state = change_state(problem.init, action)
 
 
 if __name__ == "__main__":
