@@ -6,3 +6,4 @@
 
 # Cache files
 *.pyc
+__pycache__/
