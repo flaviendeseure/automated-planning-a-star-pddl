@@ -7,11 +7,10 @@ from pddl.logic.predicates import Predicate
 
 def construct_predicate(predicate: Predicate, action: dict) -> Predicate:
     variables = []
-    for term, parameter, obj in zip(
-            predicate.terms, action["parameters"], action["objects"]
-    ):
-        if term == parameter:
-            variables.append(obj)
+    for term in predicate.terms:
+        for parameter, obj in zip(action["parameters"], action["objects"]):
+            if term == parameter:
+                variables.append(obj)
     return Predicate(predicate.name, *variables)
 
 
@@ -65,14 +64,23 @@ def change_state(
             when: When = operand.effect
             for when_effect in when.effect.operands:
                 if isinstance(when_effect, Predicate):
-                    original_s: Predicate = [s for s in state if s.name == when.condition.name][0]
-                    order = [when.condition.terms.index(term) for term in when_effect.terms]
+                    original_s: logic.Formula = [
+                        s
+                        for s in state
+                        if s.name == when.condition.name
+                    ][0]
+                    order = [
+                        when.condition.terms.index(term)
+                        for term in when_effect.terms
+                    ]
                     new_terms = [original_s.terms[i] for i in order]
                     predicate = Predicate(when_effect.name, *new_terms)
                     predicates_to_add.append(predicate)
 
                 elif isinstance(when_effect, logic.Not):
-                    original_s: Predicate = [s for s in state if s.name == when.condition.name][0]
+                    original_s: logic.Formula = [
+                        s for s in state if s.name == when.condition.name
+                    ][0]
                     order = [when.condition.terms.index(term) for term in
                              when_effect.argument.terms]
                     new_terms = [original_s.terms[i] for i in order]

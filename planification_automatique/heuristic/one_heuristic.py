@@ -9,9 +9,5 @@ class OneHeuristic(Heuristic):
     def __init__(self):
         super().__init__()
 
-    def __call__(
-            self, state: AbstractSet[logic.Formula],
-            actions: list[dict],
-            goal: logic.Formula
-    ):
+    def __call__(self, state: AbstractSet[logic.Formula], goal: logic.Formula):
         return 1

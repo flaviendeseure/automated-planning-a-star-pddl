@@ -20,8 +20,7 @@ class AStar(SearchAlgorithm):
         g: dict = {
             str(start): self.heuristic(
                 state=start,
-                actions=problem.applicable_actions(start),
-                goal=problem.goal
+                goal=problem.goal,
             )
         }
 
@@ -37,9 +36,9 @@ class AStar(SearchAlgorithm):
 
             for action in problem.applicable_actions(node_current):
                 node_successor: AbstractSet[logic.Formula] = problem.apply_action(
-                    node_current, action)
+                    node_current, action
+                )
                 successor_current_cost: int = g[str(node_current)] + 1
-
                 is_already_visited: bool = str(node_successor) in g
                 if is_already_visited:
                     if g[str(node_successor)] <= successor_current_cost:
@@ -54,8 +53,7 @@ class AStar(SearchAlgorithm):
                         node_successor,
                         successor_current_cost + self.heuristic(
                             state=node_successor,
-                            actions=problem.applicable_actions(node_successor),
-                            goal=problem.goal
+                            goal=problem.goal,
                         )
                     )
 
