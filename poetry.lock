@@ -63,4 +63,4 @@ lark-parser = ">=0.9.0,<1"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "4d666a0f88b1df50668f09584e2297f3255ba90fe7f0333f842d027c533d988f"
+content-hash = "c0dd62a69f41f5cacf0fd458d0bbab011e9e708895112f9a4f9b76e842266c90"
