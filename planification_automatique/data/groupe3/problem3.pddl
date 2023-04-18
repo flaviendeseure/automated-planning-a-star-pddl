@@ -1,4 +1,4 @@
-(define (problem rubik1)
+(define (problem rubik3)
     (:domain rubik)
     (:objects r w b g o y - color)
     (:init
