@@ -3,7 +3,6 @@ from typing import AbstractSet
 
 import pddl
 import pddl.core
-import pddl.core
 import pddl.logic.base as logic
 
 from planification_automatique.utils import is_applicable, change_state

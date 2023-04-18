@@ -1,10 +1,7 @@
 from abc import ABC, abstractmethod
-from typing import TYPE_CHECKING
 
 from planification_automatique.heuristic import Heuristic
-
-if TYPE_CHECKING:
-    from planification_automatique.pddl_problem import PDDLProblem
+from planification_automatique.pddl_problem import PDDLProblem
 
 
 class SearchAlgorithm(ABC):

@@ -10,6 +10,8 @@ class Heuristic(ABC):
 
     @abstractmethod
     def __call__(
-            self, state: AbstractSet[logic.Formula], action: dict, goal: logic.Formula
+            self, state: AbstractSet[logic.Formula],
+            actions: list[dict],
+            goal: logic.Formula
     ):
         raise NotImplementedError
