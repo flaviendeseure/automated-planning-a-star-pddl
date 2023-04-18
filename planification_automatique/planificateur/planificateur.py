@@ -1,13 +1,15 @@
 import heapq
 
 from planification_automatique.pddl_problem import PDDLProblem
+from planification_automatique.search_algorithm import SearchAlgorithm
 
 
 class Planificateur:
-    def __init__(self, problem: PDDLProblem, search_algorithm, heuristic) -> None:
+    def __init__(
+            self, problem: PDDLProblem, search_algorithm: SearchAlgorithm,
+    ) -> None:
         self.problem = problem
         self.search_algorithm = search_algorithm
-        self.heuristic = heuristic
 
     def solve(self):
         pass

@@ -52,8 +52,9 @@ def is_applicable(action: dict, state: AbstractSet[logic.Formula]) -> bool:
         raise NotImplementedError
 
 
-def change_state(state: AbstractSet[logic.Formula], action: dict) -> set[
-    logic.Formula]:
+def change_state(
+        state: AbstractSet[logic.Formula], action: dict
+) -> set[logic.Formula]:
     new_state = set(state)
     effect: AndEffect = action["effect"]
     for operand in effect.operands:
