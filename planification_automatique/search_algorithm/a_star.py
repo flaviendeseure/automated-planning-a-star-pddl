@@ -12,7 +12,7 @@ class AStar(SearchAlgorithm):
     def __init__(self, heuristic: Heuristic) -> None:
         super().__init__(heuristic)
 
-    def search(self, problem: PDDLProblem) -> (AbstractSet[logic.Formula], int):
+    def search(self, problem: PDDLProblem) -> (AbstractSet[logic.Formula], int, list):
         open_queue = PriorityQueue()
         closed_set: set = set()
         start: AbstractSet[logic.Formula] = problem.initial_state
@@ -23,16 +23,13 @@ class AStar(SearchAlgorithm):
                 goal=problem.goal,
             )
         }
+        actions: dict = {str(start): []}
 
-        i: int = 1
         while not open_queue.empty():
-            if i % 100 == 0:
-                print(i)
-
             node_current: AbstractSet[logic.Formula] = open_queue.get()
 
             if problem.is_goal(node_current):
-                return node_current, g[str(node_current)]
+                return node_current, g[str(node_current)], actions[str(node_current)]
 
             for action in problem.applicable_actions(node_current):
                 node_successor: AbstractSet[logic.Formula] = problem.apply_action(
@@ -58,6 +55,10 @@ class AStar(SearchAlgorithm):
                     )
 
                 g[str(node_successor)] = successor_current_cost
+                if str(node_successor) not in actions:
+                    actions[str(node_successor)] = actions[str(node_current)] + [action]
+                elif len(actions[str(node_successor)]) > len(actions[str(node_current)] + [action]):
+                    actions[str(node_successor)] = actions[str(node_current)] + [action]
 
             closed_set.add(str(node_current))
 
