@@ -4,6 +4,7 @@ from typing import AbstractSet
 import pddl
 import pddl.core
 import pddl.logic.base as logic
+from pddl.logic import Predicate
 
 from planification_automatique.utils import is_applicable, change_state
 
@@ -25,13 +26,20 @@ class PDDLProblem:
         return self.problem.domain
 
     def is_goal(self, state: AbstractSet[logic.Formula]):
-        if len(state) != len(self.goal.operands):
-            return False
+        if isinstance(self.goal, Predicate):
+            return self.goal in state
 
-        for operand in self.goal.operands:
-            if operand not in state:
+        elif isinstance(self.goal, logic.And):
+            if len(state) != len(self.goal.operands):
                 return False
-        return True
+
+            for operand in self.goal.operands:
+                if operand not in state:
+                    return False
+            return True
+
+        else:
+            raise NotImplementedError
 
     def ground_actions(self) -> list[dict]:
         grounded_actions: list = []

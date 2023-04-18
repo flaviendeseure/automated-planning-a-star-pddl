@@ -26,9 +26,6 @@ def main():
     problem: pddl.core.Problem = parse_problem(problem_file)
     problem.domain = parse_domain(domain_file)
     pddl_problem: PDDLProblem = PDDLProblem(problem)
-    state = pddl_problem.initial_state
-    state = pddl_problem.apply_action(state, pddl_problem.applicable_actions(state)[1])
-    print(len(pddl_problem.applicable_actions(state)))
 
     heuristic: OneHeuristic = OneHeuristic()
     a_star: AStar = AStar(heuristic)

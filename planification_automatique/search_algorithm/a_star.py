@@ -1,11 +1,11 @@
 import heapq
-from typing import TYPE_CHECKING, AbstractSet
+from typing import AbstractSet
 
 import pddl.logic.base as logic
 
 from planification_automatique.heuristic import Heuristic
-from planification_automatique.search_algorithm import SearchAlgorithm
 from planification_automatique.pddl_problem import PDDLProblem
+from planification_automatique.search_algorithm import SearchAlgorithm
 
 
 class AStar(SearchAlgorithm):
@@ -25,27 +25,27 @@ class AStar(SearchAlgorithm):
             )
         }
 
-        i: int = 0
+        i: int = 1
         while not open_queue.empty():
-            i += 1
             if i % 100 == 0:
                 print(i)
 
             node_current: AbstractSet[logic.Formula] = open_queue.get()
 
             if problem.is_goal(node_current):
-                return node_current, g[node_current]
+                return node_current, g[str(node_current)]
 
             for action in problem.applicable_actions(node_current):
-                node_successor: AbstractSet[logic.Formula] = problem.apply_action(node_current, action)
+                node_successor: AbstractSet[logic.Formula] = problem.apply_action(
+                    node_current, action)
                 successor_current_cost: int = g[str(node_current)] + 1
 
                 is_already_visited: bool = str(node_successor) in g
                 if is_already_visited:
                     if g[str(node_successor)] <= successor_current_cost:
                         continue
-                elif node_successor in closed_set:
-                    closed_set.remove(node_successor)
+                elif str(node_successor) in closed_set:
+                    closed_set.remove(str(node_successor))
                     if g[str(node_successor)] <= successor_current_cost:
                         continue
                     open_queue.put(node_successor, g[str(node_successor)])
@@ -61,7 +61,7 @@ class AStar(SearchAlgorithm):
 
                 g[str(node_successor)] = successor_current_cost
 
-            closed_set.add(node_current)
+            closed_set.add(str(node_current))
 
         return None, float("inf")
 

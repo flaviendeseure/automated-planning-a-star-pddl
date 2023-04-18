@@ -57,6 +57,39 @@ def change_state(
 ) -> set[logic.Formula]:
     new_state = set(state)
     effect: AndEffect = action["effect"]
+
+    if all(isinstance(operand, Forall) for operand in effect.operands):
+        predicates_to_remove: list = []
+        predicates_to_add: list = []
+        for operand in effect.operands:
+            when: When = operand.effect
+            for when_effect in when.effect.operands:
+                if isinstance(when_effect, Predicate):
+                    original_s: Predicate = [s for s in state if s.name == when.condition.name][0]
+                    order = [when.condition.terms.index(term) for term in when_effect.terms]
+                    new_terms = [original_s.terms[i] for i in order]
+                    predicate = Predicate(when_effect.name, *new_terms)
+                    predicates_to_add.append(predicate)
+
+                elif isinstance(when_effect, logic.Not):
+                    original_s: Predicate = [s for s in state if s.name == when.condition.name][0]
+                    order = [when.condition.terms.index(term) for term in
+                             when_effect.argument.terms]
+                    new_terms = [original_s.terms[i] for i in order]
+                    predicate = Predicate(when_effect.argument.name, *new_terms)
+                    predicates_to_remove.append(predicate)
+
+                else:
+                    raise NotImplementedError
+
+        for predicate in predicates_to_remove:
+            if predicate in new_state:
+                new_state.remove(predicate)
+        for predicate in predicates_to_add:
+            new_state.add(predicate)
+
+        return new_state
+
     for operand in effect.operands:
         if isinstance(operand, logic.Not):
             if isinstance(operand.argument, Predicate):
@@ -69,22 +102,6 @@ def change_state(
         elif isinstance(operand, Predicate):
             predicate: Predicate = construct_predicate(operand, action)
             new_state.add(predicate)
-
-        elif isinstance(operand, Forall):
-            when: When = operand.effect
-            for when_effect in when.effect.operands:
-                if isinstance(when_effect, Predicate):
-                    s = [s for s in state if s.name == when_effect.name]
-                    predicate = Predicate(when_effect.name, *s[0].terms)
-                    new_state.add(predicate)
-
-                elif isinstance(when_effect, logic.Not):
-                    s = [s for s in state if s.name == when_effect.argument.name]
-                    predicate = Predicate(when_effect.argument.name, *s[0].terms)
-                    new_state.remove(predicate)
-
-                else:
-                    raise NotImplementedError
 
         else:
             raise NotImplementedError
