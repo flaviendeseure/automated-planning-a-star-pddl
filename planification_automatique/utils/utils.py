@@ -6,7 +6,7 @@ from pddl.logic.predicates import Predicate
 
 
 def construct_predicate(predicate: Predicate, action: dict) -> Predicate:
-    variables = []
+    variables: list = []
     for term in predicate.terms:
         for parameter, obj in zip(action["parameters"], action["objects"]):
             if term == parameter:
@@ -54,7 +54,7 @@ def is_applicable(action: dict, state: AbstractSet[logic.Formula]) -> bool:
 def change_state(
         state: AbstractSet[logic.Formula], action: dict
 ) -> set[logic.Formula]:
-    new_state = set(state)
+    new_state: set = set(state)
     effect: AndEffect = action["effect"]
 
     if all(isinstance(operand, Forall) for operand in effect.operands):

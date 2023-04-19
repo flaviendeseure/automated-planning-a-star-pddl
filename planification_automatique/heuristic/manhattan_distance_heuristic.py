@@ -1,10 +1,9 @@
-
 from typing import AbstractSet, Union, Dict, Tuple
 
 import pddl.logic.base as logic
+from pddl.logic import Predicate
 
 from planification_automatique.heuristic import Heuristic
-
 
 
 class ManhattanDistanceHeuristic(Heuristic):
@@ -14,6 +13,7 @@ class ManhattanDistanceHeuristic(Heuristic):
     and its corresponding tile in the goal state. The distance between two tiles is calculated 
     as the sum of the absolute differences in their row and column positions.
     """
+
     def __init__(self):
         super().__init__()
 
@@ -28,17 +28,22 @@ class ManhattanDistanceHeuristic(Heuristic):
 
         return distance
 
-    def get_positions(self, state: AbstractSet[logic.Formula]) -> Dict[str, Tuple[int, int]]:
+    def get_positions(self, state: Union[AbstractSet[logic.Formula], logic.Formula]) -> \
+            Dict[str, Tuple[int, int]]:
         """
         Returns a dictionary mapping the name of each tile to its position in the board.
         """
         positions = {}
+
+        if isinstance(state, logic.And):
+            state = state.operands
+        if isinstance(state, Predicate):
+            state = [state]
+
         for i, row in enumerate(state):
-            for j, tile in enumerate(row.operands):
-                positions[tile["name"]] = (i, j)
+            for j, tile in enumerate(row.terms):
+                positions[f"{tile.name}"] = (i, j)
         return positions
-
-
 
 # class ManhattanDistanceHeuristic(Heuristic):
 #     """
@@ -60,19 +65,19 @@ class ManhattanDistanceHeuristic(Heuristic):
 #     for i in range(len(current_state)):
 #         for j in range(len(current_state[i])):
 #             current_dict[current_state[i][j]] = (i, j)
-            
+
 #     goal_dict = {}
 #     for i in range(len(goal_state)):
 #         for j in range(len(goal_state[i])):
 #             goal_dict[goal_state[i][j]] = (i, j)
-            
+
 #     # Calculate the Manhattan distance for each tile
 #     distance = 0
 #     for tile in current_dict:
 #         current_pos = current_dict[tile]
 #         goal_pos = goal_dict[tile]
 #         distance += abs(current_pos[0] - goal_pos[0]) + abs(current_pos[1] - goal_pos[1])
-        
+
 #     # Return the total Manhattan distance
 #     return distance
 
