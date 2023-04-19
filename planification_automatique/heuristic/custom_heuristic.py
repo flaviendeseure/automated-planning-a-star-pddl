@@ -24,7 +24,8 @@ class CustomHeuristic(Heuristic):
             )
             position_state: str = position.terms[0].name
             position_states: tuple = (
-            int(position_state[3:-1]), int(position_state[-1]))
+                int(position_state[3:-1]), int(position_state[-1])
+            )
 
             position_goal: str = goal.terms[0].name
             position_goals: tuple = (int(position_goal[3:-1]), int(position_goal[-1]))

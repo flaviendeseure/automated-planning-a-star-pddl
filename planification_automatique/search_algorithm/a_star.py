@@ -57,7 +57,9 @@ class AStar(SearchAlgorithm):
                 g[str(node_successor)] = successor_current_cost
                 if str(node_successor) not in actions:
                     actions[str(node_successor)] = actions[str(node_current)] + [action]
-                elif len(actions[str(node_successor)]) > len(actions[str(node_current)] + [action]):
+                elif len(actions[str(node_successor)]) > len(
+                        actions[str(node_current)] + [action]
+                ):
                     actions[str(node_successor)] = actions[str(node_current)] + [action]
 
             closed_set.add(str(node_current))
