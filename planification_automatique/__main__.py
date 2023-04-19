@@ -29,8 +29,8 @@ def main():
     problem.domain = parse_domain(domain_file)
     pddl_problem: PDDLProblem = PDDLProblem(problem)
 
-    one_heuristic: OneHeuristic = OneHeuristic()
-    a_star: AStar = AStar(one_heuristic)
+    custom_heuristic: CustomHeuristic = CustomHeuristic(problem)
+    a_star: AStar = AStar(custom_heuristic)
     planificateur: Planificateur = Planificateur(pddl_problem, a_star)
 
     start: float = time.perf_counter()
