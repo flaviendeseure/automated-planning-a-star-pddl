@@ -30,6 +30,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#authors">Authors</a></li>
     <li><a href="#license">License</a></li>
   </ol>
 </details>
@@ -94,6 +95,15 @@ where:
 - --domain: string that specifies the name of the domain file (default: "domain").  
   
 The script will load the PDDL domain and problem files specified by --domain and --problem, respectively, and will run the A* search algorithm with a Manhattan distance heuristic to find a solution. The output will show the cost of the solution, the number of steps in the plan, and the time it took to find the solution. It will also print the plan found by the algorithm.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## Authors
+- Yoan Gabison
+- Thomas Favoli
+- Noam Benitah
+- Flavien Deseure--Charron
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
