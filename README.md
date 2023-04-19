@@ -76,7 +76,6 @@ To get a local copy up and running follow these simple example steps.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
 ## Usage
 To run the script, use the following command:
 
@@ -84,22 +83,43 @@ To run the script, use the following command:
 ```sh
 poetry run main [--group GROUP] [--problem PROBLEM] [--domain DOMAIN]
 ``` 
+Exemple : 
+```sh
+poetry run main --group 2 --problem problem1
+```   
 
 2. With a virtual environment
 ```sh
 source planning_env/bin/activate
 python -m planification_automatique  [--group GROUP] [--problem PROBLEM] [--domain DOMAIN]
 ```
+Exemple : 
+```sh
+python -m planification_automatique --group 2 --problem problem1
+```   
 
 where:  
 - --group: integer that specifies the group number (default: 1).
 - --problem: string that specifies the name of the problem file (default: "problem0").
 - --domain: string that specifies the name of the domain file (default: "domain").  
   
-The script will load the PDDL domain and problem files specified by --domain and --problem, respectively, and will run the A* search algorithm with a Manhattan distance heuristic to find a solution. The output will show the cost of the solution, the number of steps in the plan, and the time it took to find the solution. It will also print the plan found by the algorithm.
+The script will load the PDDL domain and problem files specified by --domain and --problem, respectively, and will run the A* search algorithm with a Manhattan distance heuristic to find a solution. The output will show the cost of the solution, the number of steps in the plan, and the time it took to find the solution. It will also print the plan found by the algorithm.  
+  
+An example of output is:   
+```bash  
+=========================================================  
+Domain: groupe2 - domain  
+Problem: problem0
+=========================================================
+Solution found with cost 8 in 7 steps and 0.59 seconds
+-----------------------------------------
+Found Plan:
+-----------
+move(pos62, pos61) => move(pos61, pos51) => move(pos51, pos41) => move(pos41, pos31) => shoot(pos31, pos21) => move(pos31, pos21) => move(pos21, pos11)
+=========================================================  
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ## Authors
 - [Yoan Gabison](https://github.com/YoanGab)
@@ -109,13 +129,10 @@ The script will load the PDDL domain and problem files specified by --domain and
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 ## License
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 [contributors-shield]: https://img.shields.io/github/contributors/flaviendeseure/automated-planning-a-star-pddl.svg?style=for-the-badge
 [contributors-url]: https://github.com/flaviendeseure/automated-planning-a-star-pddl/graphs/contributors
