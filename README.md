@@ -115,7 +115,8 @@ Solution found with cost 8 in 7 steps and 0.59 seconds
 -----------------------------------------
 Found Plan:
 -----------
-move(pos62, pos61) => move(pos61, pos51) => move(pos51, pos41) => move(pos41, pos31) => shoot(pos31, pos21) => move(pos31, pos21) => move(pos21, pos11)
+move(pos62, pos61) => move(pos61, pos51) => move(pos51, pos41) => move(pos41, pos31) => shoot(pos31, pos21) 
+=> move(pos31, pos21) => move(pos21, pos11)
 =========================================================  
 ```
 
