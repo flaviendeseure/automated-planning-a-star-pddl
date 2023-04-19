@@ -1,0 +1,200 @@
+{
+    "groupe1_problem0": {
+        "OneHeuristic": {
+            "plan_size": 6,
+            "time": 12.291265312000178
+        },
+        "ManhattanDistanceHeuristic": {
+            "plan_size": "Error",
+            "time": "Error"
+        },
+        "CustomHeuristic": {
+            "plan_size": 6,
+            "time": 7.566885345993796
+        },
+        "PatternDBsHeuristic": {
+            "plan_size": 10,
+            "time": 11.9460015349905
+        }
+    },
+    "groupe1_problem1": {
+        "OneHeuristic": {
+            "plan_size": "Timeout",
+            "time": "Timeout"
+        },
+        "ManhattanDistanceHeuristic": {
+            "plan_size": "Error",
+            "time": "Error"
+        },
+        "CustomHeuristic": {
+            "plan_size": "Timeout",
+            "time": "Timeout"
+        },
+        "PatternDBsHeuristic": {
+            "plan_size": "Timeout",
+            "time": "Timeout"
+        }
+    },
+    "groupe1_problem2": {
+        "OneHeuristic": {
+            "plan_size": "Timeout",
+            "time": "Timeout"
+        },
+        "ManhattanDistanceHeuristic": {
+            "plan_size": "Error",
+            "time": "Error"
+        },
+        "CustomHeuristic": {
+            "plan_size": "Timeout",
+            "time": "Timeout"
+        },
+        "PatternDBsHeuristic": {
+            "plan_size": "Timeout",
+            "time": "Timeout"
+        }
+    },
+    "groupe1_problem3": {
+        "OneHeuristic": {
+            "plan_size": "Timeout",
+            "time": "Timeout"
+        },
+        "ManhattanDistanceHeuristic": {
+            "plan_size": "Error",
+            "time": "Error"
+        },
+        "CustomHeuristic": {
+            "plan_size": "Timeout",
+            "time": "Timeout"
+        },
+        "PatternDBsHeuristic": {
+            "plan_size": "Timeout",
+            "time": "Timeout"
+        }
+    },
+    "groupe2_problem0": {
+        "OneHeuristic": {
+            "plan_size": 7,
+            "time": 0.771698940981878
+        },
+        "ManhattanDistanceHeuristic": {
+            "plan_size": "Error",
+            "time": "Error"
+        },
+        "CustomHeuristic": {
+            "plan_size": 7,
+            "time": 0.225223357003415
+        },
+        "PatternDBsHeuristic": {
+            "plan_size": 7,
+            "time": 0.7795140600064769
+        }
+    },
+    "groupe2_problem1": {
+        "OneHeuristic": {
+            "plan_size": 9,
+            "time": 4.252778550988296
+        },
+        "ManhattanDistanceHeuristic": {
+            "plan_size": "Error",
+            "time": "Error"
+        },
+        "CustomHeuristic": {
+            "plan_size": 9,
+            "time": 0.5255657119851094
+        },
+        "PatternDBsHeuristic": {
+            "plan_size": 9,
+            "time": 4.1743038069980685
+        }
+    },
+    "groupe2_problem2": {
+        "OneHeuristic": {
+            "plan_size": 20,
+            "time": 39.17784365802072
+        },
+        "ManhattanDistanceHeuristic": {
+            "plan_size": "Error",
+            "time": "Error"
+        },
+        "CustomHeuristic": {
+            "plan_size": 20,
+            "time": 12.571114063001005
+        },
+        "PatternDBsHeuristic": {
+            "plan_size": 20,
+            "time": 40.512124098982895
+        }
+    },
+    "groupe3_problem0": {
+        "OneHeuristic": {
+            "plan_size": 1,
+            "time": 0.007749863987555727
+        },
+        "ManhattanDistanceHeuristic": {
+            "plan_size": 1,
+            "time": 0.00272109400248155
+        },
+        "CustomHeuristic": {
+            "plan_size": 1,
+            "time": 0.002685179002583027
+        },
+        "PatternDBsHeuristic": {
+            "plan_size": 1,
+            "time": 0.007667591999052092
+        }
+    },
+    "groupe3_problem1": {
+        "OneHeuristic": {
+            "plan_size": "Timeout",
+            "time": "Timeout"
+        },
+        "ManhattanDistanceHeuristic": {
+            "plan_size": "Timeout",
+            "time": "Timeout"
+        },
+        "CustomHeuristic": {
+            "plan_size": 10,
+            "time": 121.37482744597946
+        },
+        "PatternDBsHeuristic": {
+            "plan_size": "Timeout",
+            "time": "Timeout"
+        }
+    },
+    "groupe3_problem2": {
+        "OneHeuristic": {
+            "plan_size": "Timeout",
+            "time": "Timeout"
+        },
+        "ManhattanDistanceHeuristic": {
+            "plan_size": "Timeout",
+            "time": "Timeout"
+        },
+        "CustomHeuristic": {
+            "plan_size": 10,
+            "time": 23.651527522015385
+        },
+        "PatternDBsHeuristic": {
+            "plan_size": "Timeout",
+            "time": "Timeout"
+        }
+    },
+    "groupe3_problem3": {
+        "OneHeuristic": {
+            "plan_size": "Timeout",
+            "time": "Timeout"
+        },
+        "ManhattanDistanceHeuristic": {
+            "plan_size": "Timeout",
+            "time": "Timeout"
+        },
+        "CustomHeuristic": {
+            "plan_size": 12,
+            "time": 489.3535048890044
+        },
+        "PatternDBsHeuristic": {
+            "plan_size": "Timeout",
+            "time": "Timeout"
+        }
+    }
+}

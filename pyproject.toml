@@ -16,3 +16,4 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 main = "planification_automatique.__main__:main"
+test_all = "planification_automatique.__main__:test_all_problems"
