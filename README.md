@@ -3,7 +3,7 @@
 
 <br />
 <div align="center">
-  <h1 align="center">Automated Planning with A* Search from PDDL domain </h1>
+  <h3 align="center">Automated Planning with A* Search from PDDL domain </h3>
   <p align="center">
     Python implementation of an automated planning system that solves planning problems specified in PDDL using the A* search algorithm with heuristics.
     <br />
