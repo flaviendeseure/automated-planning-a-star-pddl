@@ -42,7 +42,9 @@ Automated Planning with A* Search from PDDL domain is a Python project that aims
 
 We propose some interesting heuristics :
 1. **OneHeuristic**: return always one (no heuristic)
-2. **ManhattanDistanceHeuristic**: calculates the Manhattan distance between two states
+2. **ManhattanDistanceHeuristic**: calculates the Manhattan distance between a state and the goal
+3. **Pattern DB**: calculates the distance between a state and the goal using a pattern database
+4. **CustomHeuristic**: calculates the number of goal predicates that are not in the current state
 
 This project is useful for anyone interested in automated planning and solving planning problems with PDDL. It can be used as a tool for experimenting with different heuristics or search algorithms and as a learning resource for understanding how automated planning works. The project is released under the MIT license, so it can be freely used, modified, and distributed.
 
@@ -50,7 +52,6 @@ This project is useful for anyone interested in automated planning and solving p
 
 
 ## Getting Started
-
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
