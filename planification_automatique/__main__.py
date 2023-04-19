@@ -37,6 +37,10 @@ def main():
     solution, cost, plan = planificateur.solve()
     end: float = time.perf_counter()
 
+    print("=========================================================")
+    print(f"Domain: groupe{args.group} - {args.domain}")
+    print(f"Problem: {args.problem}")
+    print("=========================================================")
     if not solution:
         print("No solution found")
         return
@@ -45,19 +49,20 @@ def main():
     if not is_valid_plan:
         print("Plan is not correct")
         return
-    else:
-        print("Found a correct plan")
 
     state: AbstractSet[logic.Formula] = pddl_problem.initial_state
     for action in plan:
         state = pddl_problem.apply_action(state, action)
     print(
-        "Solution found with cost {} in {} steps and {:.2f} seconds\n"
+        "Solution found with cost {} in {} steps and {:.2f} seconds"
         .format(cost, len(plan), end - start)
     )
+    print("-----------------------------------------")
     print("Found Plan:")
-    for action in plan:
-        print(f"- {action['name']}")
+    print("-----------")
+    text_plans = " => ".join([action['name'] for action in plan])
+    print(text_plans)
+    print("=========================================================")
 
 
 if __name__ == "__main__":
