@@ -15,5 +15,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-convert = "planification_automatique.convert_problem_pddl:main"
 main = "planification_automatique.__main__:main"
