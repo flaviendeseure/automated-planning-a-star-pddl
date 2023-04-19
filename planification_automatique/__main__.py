@@ -7,7 +7,8 @@ import pddl.core
 import pddl.logic.base as logic
 from pddl import parse_domain, parse_problem
 
-from planification_automatique.heuristic import OneHeuristic, ManhattanDistanceHeuristic
+from planification_automatique.heuristic import OneHeuristic, \
+    ManhattanDistanceHeuristic, CustomHeuristic, PatternDBsHeuristic, Heuristic
 from planification_automatique.pddl_problem import PDDLProblem
 from planification_automatique.planificateur import Planificateur
 from planification_automatique.search_algorithm.a_star import AStar
