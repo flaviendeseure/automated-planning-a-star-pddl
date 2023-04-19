@@ -51,6 +51,9 @@ def main():
         "Solution found with cost {} in {} steps and {:.2f} seconds"
         .format(cost, len(plan), end - start)
     )
+    print("Found Plan:")
+    for action in plan:
+        print(f"- {action['name']}")
 
 
 if __name__ == "__main__":
