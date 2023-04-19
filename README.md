@@ -58,6 +58,7 @@ To get a local copy up and running follow these simple example steps.
 1. Clone the repo
    ```sh
    git clone https://github.com/flaviendeseure/automated-planning-a-star-pddl.git
+   cd automated-planning-a-star-pddl
    ```
 2. Install Python packages  
    a. With Poetry
@@ -68,6 +69,7 @@ To get a local copy up and running follow these simple example steps.
    ```sh
     python -m venv planning_env
     source planning_env/bin/activate
+    pip install --upgrade pip
     pip install -r requirements.txt
     ```
 
