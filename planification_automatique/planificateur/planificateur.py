@@ -15,3 +15,9 @@ class Planificateur:
 
     def solve(self) -> (AbstractSet[logic.Formula], int):
         return self.search_algorithm.search(self.problem)
+    
+    def verify_solution(self, plan: list) -> bool:
+        state = self.problem.initial_state
+        for action in plan:
+            state = self.problem.apply_action(state, action)
+        return self.problem.is_goal(state)

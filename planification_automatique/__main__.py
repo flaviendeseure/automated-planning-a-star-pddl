@@ -40,15 +40,19 @@ def main():
     if not solution:
         print("No solution found")
         return
+    
+    is_valid_plan: bool = planificateur.verify_solution(plan)
+    if not is_valid_plan:
+        print("Plan is not correct")
+        return
+    else:
+        print("Found a correct plan")
 
     state: AbstractSet[logic.Formula] = pddl_problem.initial_state
     for action in plan:
         state = pddl_problem.apply_action(state, action)
-    if not pddl_problem.is_goal(state):
-        print("Plan is not correct")
-        return
     print(
-        "Solution found with cost {} in {} steps and {:.2f} seconds"
+        "Solution found with cost {} in {} steps and {:.2f} seconds\n"
         .format(cost, len(plan), end - start)
     )
     print("Found Plan:")
