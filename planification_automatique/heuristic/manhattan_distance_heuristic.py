@@ -1,9 +1,25 @@
-"""
-To compute the Manhattan distance between two states, 
-we need to calculate the sum of the distances between each tile in the current state 
-and its corresponding tile in the goal state. The distance between two tiles is calculated 
-as the sum of the absolute differences in their row and column positions.
-"""
+
+from typing import AbstractSet
+
+import pddl.logic.base as logic
+
+from planification_automatique.heuristic import Heuristic
+
+
+class ManhattanDistanceHeuristic(Heuristic):
+    """
+    To compute the Manhattan distance between two states, 
+    we need to calculate the sum of the distances between each tile in the current state 
+    and its corresponding tile in the goal state. The distance between two tiles is calculated 
+    as the sum of the absolute differences in their row and column positions.
+    """
+    def __init__(self):
+        super().__init__()
+
+    def __call__(self, state: AbstractSet[logic.Formula], goal: logic.Formula):
+        return 1
+
+
 
 def manhattan_distance(current_state, goal_state):
     # Create dictionaries to map each tile to its position in the states
