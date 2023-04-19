@@ -20,7 +20,6 @@ class ManhattanDistanceHeuristic(Heuristic):
         return 1
 
 
-
 def manhattan_distance(current_state, goal_state):
     # Create dictionaries to map each tile to its position in the states
     current_dict = {}
@@ -50,4 +49,3 @@ current_state1 = [['o', 'b', 'w'], ['o', 'b', 'w'], ['r', 'g', 'w'], ['r', 'b', 
 
 distance0 = manhattan_distance(current_state0, goal_state)
 distance1 = manhattan_distance(current_state1, goal_state)
-print(distance0, distance1)

@@ -44,7 +44,7 @@ def main():
     if not solution:
         print("No solution found")
         return
-    
+
     is_valid_plan: bool = planificateur.verify_solution(plan)
     if not is_valid_plan:
         print("Plan is not correct")
@@ -54,13 +54,13 @@ def main():
     for action in plan:
         state = pddl_problem.apply_action(state, action)
     print(
-        "Solution found with cost {} in {} steps and {:.2f} seconds"
-        .format(cost, len(plan), end - start)
+        "Solution found with cost {cost} in {plan_size} steps and {time:.2f} seconds"
+        .format(cost=cost, plan_size=len(plan), time=end - start)
     )
     print("-----------------------------------------")
     print("Found Plan:")
     print("-----------")
-    text_plans = " => ".join([action['name'] for action in plan])
+    text_plans = " => ".join([f"{action['name']}({', '.join([str(obj) for obj in action['objects']])})" for action in plan])
     print(text_plans)
     print("=========================================================")
 
