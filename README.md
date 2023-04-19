@@ -91,7 +91,7 @@ python -m planification_automatique  [--group GROUP] [--problem PROBLEM] [--doma
 
 where:  
 - --group: integer that specifies the group number (default: 1).
-- --problem: string that specifies the name of the problem file (default: "problem1").
+- --problem: string that specifies the name of the problem file (default: "problem0").
 - --domain: string that specifies the name of the domain file (default: "domain").  
   
 The script will load the PDDL domain and problem files specified by --domain and --problem, respectively, and will run the A* search algorithm with a Manhattan distance heuristic to find a solution. The output will show the cost of the solution, the number of steps in the plan, and the time it took to find the solution. It will also print the plan found by the algorithm.

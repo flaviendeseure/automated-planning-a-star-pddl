@@ -7,7 +7,7 @@ import pddl.core
 import pddl.logic.base as logic
 from pddl import parse_domain, parse_problem
 
-from planification_automatique.heuristic import OneHeuristic
+from planification_automatique.heuristic import OneHeuristic, ManhattanDistanceHeuristic
 from planification_automatique.pddl_problem import PDDLProblem
 from planification_automatique.planificateur import Planificateur
 from planification_automatique.search_algorithm.a_star import AStar
@@ -16,7 +16,7 @@ from planification_automatique.search_algorithm.a_star import AStar
 def main():
     parser: argparse.ArgumentParser = argparse.ArgumentParser()
     parser.add_argument("--group", type=int, default=1)
-    parser.add_argument("--problem", type=str, default="problem1")
+    parser.add_argument("--problem", type=str, default="problem0")
     parser.add_argument("--domain", type=str, default="domain")
 
     args: argparse.Namespace = parser.parse_args()
