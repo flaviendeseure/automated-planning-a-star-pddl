@@ -80,7 +80,7 @@ To run the script, use the following command:
 
 1. With poetry
 ```sh
-poetry run python main.py  [--group GROUP] [--problem PROBLEM] [--domain DOMAIN]
+poetry run main [--group GROUP] [--problem PROBLEM] [--domain DOMAIN]
 ``` 
 
 2. With a virtual environment
