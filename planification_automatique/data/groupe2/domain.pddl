@@ -1,5 +1,5 @@
 (define (domain military-race)
-
+    (:requirements :strips :typing)
     (:types
     position
     )
