@@ -100,10 +100,10 @@ The script will load the PDDL domain and problem files specified by --domain and
 
 
 ## Authors
-- Yoan Gabison
-- Thomas Favoli
-- Noam Benitah
-- Flavien Deseure--Charron
+- [Yoan Gabison](https://github.com/YoanGab)
+- [Thomas Favoli](https://github.com/tf83f)
+- [Noam Benitah](https://github.com/NoamBenitah)
+- [Flavien Deseure--Charron](https://github.com/flaviendeseure)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
